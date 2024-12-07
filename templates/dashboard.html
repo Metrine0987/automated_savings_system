@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Savings Dashboard{% endblock %}
+
+{% block content %}
+<body>
+      
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" href="dashboard.html">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Recurring Savings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Savings Goals</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav> -->
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1>Welcome to Your Dashboard, {{ user.username }}!</h1>
+                    </div>
+    
+                    <section class="mb-5">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                Your Recurring Savings
+                            </div> -->
+                            <!-- <div class="card-body">
+                                <p>You don't have any recurring savings schedules yet. <a href="#" class="text-primary">Set one now</a></p>
+                            </div> -->
+                            {% if recurring_savings %}
+                            <ul>
+                              {% for saving in recurring_savings %}
+                                <li>
+                                  <strong>{{ saving.goal.name }}</strong> - Save ${{ saving.amount }} {{ saving.frequency }} (Next: {{ saving.next_saving_date }})
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          {% else %}
+                            <p>No recurring savings schedules yet. Set one now!</p>
+                          {% endif %}
+    
+                   <a href="{% url 'savings:set_recurring_savings' %}">Set a Recurring Savings Schedule</a>
+
+                        </div>
+                    </section>
+    
+                    <section>
+                        <div class="card">
+                            <div class="card-header">
+                                Your Savings Goals
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Goal Name</th>
+                                            <th>Target Amount</th>
+                                            <th>Current Amount</th>
+                                            <th>Progress</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tbody>
+                                            {% for goal in goals %}
+                                                <tr>
+                                                    <td>{{ goal.name }}</td>
+                                                    <td>${{ goal.target_amount }}</td>
+                                                    <td>${{ goal.current_amount }}</td>
+                                                    <td>{{ goal.progress }}%</td>
+                                                    <td>
+                                                        <a href="{% url 'savings:edit_goal' goal.id %}" class="btn btn-primary">Edit</a>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        <a href="{% url 'savings:delete_goal' goal_id=goal.id %}" class="btn btn-danger">Delete</a>                                                     
+                
+                                                    </td>
+                                                </tr>
+                                            {% empty %}
+                                                <tr>
+                                                    <td colspan="5">You don't have any savings goals yet.</td>
+                                                </tr>
+                                            {% endfor %}
+                                        
+                                              
+                                    </tbody>
+                                </table>
+                                <a href="{% url 'savings:create_goal' %}"  class="btn btn-success">Create a New Goal</a>
+                               
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+      
+
+{% endblock%}

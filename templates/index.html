@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}AutoSave{% endblock %}
+
+{% block content %}
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero section dark-background" style="padding: 0; margin: 0;">
+    <div class="hero" style="background-image: url('static/assets/images/money.jpg'); background-size: cover; height: 350px; width: 100vw; margin-left: -50vw; left: 50%; position: relative;">
+        <div class="text-white text-center p-5" style="background: #343a40; height: 100%; width: 100vw;">
+            <h1 class="display-4">Welcome to AutoSave</h1>
+            <p class="lead">Take control of your savings, achieve your goals, and secure your financial future with ease.</p>
+            <a href="/register/" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="container mt-5">
+
+    <!-- Features Section -->
+    <div class="row mt-5">
+        <div class="col-md-4 text-center">
+            <img src="{% static 'assets\images\istockphoto.jpg' %}" alt="Goal Icon" class="w-50 h-50 img-fluid rounded-bl-lg-5">
+            <h5>Set Savings Goals</h5>
+            <p>Create and track savings goals tailored to your needs.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="static\assets\images\money.jpg" alt="Automation Icon" class="w-50 h-50" class="img-fluid rounded-circle">
+            <h5>Automate Savings</h5>
+            <p>Automatically save a specified amount on your schedule.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="static\assets\images\favicon.jpg" alt="Progress Icon" class="w-50 h-50">
+            <h5>Track Your Progress</h5>
+            <p>Visualize your savings progress with intuitive charts and data.</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <!-- Image Section -->
+        <div class="col-12 col-md-6 text-center">
+            <img src="static/assets/images/dollar.png" class="img-fluid rounded" alt="Finance Image">
+        </div>
+
+        <!-- Text Section -->
+        <div class="col-12 col-md-6 text-center">
+            <blockquote class="blockquote faded-border p-3"></blockquote>
+            <h2>Why Choose AutoSave?</h2>
+            <p>
+                Managing your finances has never been easier. AutoSave helps you take the guesswork out of saving by providing automated, secure, and goal-oriented solutions. Whether you're saving for a rainy day, a dream vacation, or future investments, we've got you covered!
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Testimonials Section -->
+<div class="mt-5">
+    <h2 class="text-center">What Our Users Say</h2>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <blockquote class="blockquote border border-secondary p-3">
+                <p>"AutoSave changed how I manage my finances. Setting savings goals has never been so easy!"</p>
+                <footer class="blockquote-footer">Regina Metrine</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4">
+            <blockquote class="blockquote border border-secondary p-3">
+                <p>"The automation feature helped me save consistently without stress. Highly recommend!"</p>
+                <footer class="blockquote-footer">Ndeche Behenix</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4">
+            <blockquote class="blockquote border border-secondary p-3">
+                <p>"I achieved my vacation savings goal three months ahead of schedule. Thank you, AutoSave!"</p>
+                <footer class="blockquote-footer">Wanyama Evans</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Call-to-Action -->
+    <div class="text-center mt-5">
+        <h3>Ready to start your savings journey?</h3>
+        <a href="/register/" class="btn btn-success btn-lg mt-3">Sign Up Now</a>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Edit Savings Goal {% endblock %}
+
+{% block content %}
+    <h1>Edit Savings Goal</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="{% url 'savings:dashboard' %}">Back to Dashboard</a>
+
+    {% endblock %}

@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Create Savings Goal{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Create a New Savings Goal</h1>
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p|safe }}
+        </div>
+        <button type="submit" class="btn btn-primary">Create Goal</button>
+    </form>
+    <a href="{% url 'savings:dashboard' %}" class="btn btn-secondary mt-3">Back to Dashboard</a>
+</div>
+{% endblock %}

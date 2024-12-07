@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - AutoSave{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Set Recurring Savings</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="amount">Amount to save:</label>
+                <input type="number" class="form-control" id="amount" name="amount"  required>
+            </div>
+
+            <div>
+                <label for="frequency">Frequency:</label>
+                <select id="frequency" name="frequency" class="form-control" required>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" class="form-control" name="start_date" required>
+            </div>
+
+            <div>
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" class="form-control" name="end_date" required>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+
+    {% endblock %}
